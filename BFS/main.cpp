@@ -1,5 +1,5 @@
-// Обход графа в ширину (breadth-first search)
-// Граф задается в виде списка смежности
+// Breadth-first search
+// Graph is specified as an adjacency list
 
 #include <iostream>
 #include <vector>
@@ -20,15 +20,17 @@ int main() {
         {0, 4},
         {0, 1, 2, 4}
     };
-    int start, finish; // стартовая и конечная вершины
-    cout << "Enter start node => "; cin >> start;
-    cout << "Enter finish node => ";  cin >> finish;
+    int start, finish; // start and end vertices
+    cout << "Enter start node => "; 
+    cin >> start;
+    cout << "Enter finish node => ";  
+    cin >> finish;
     BFS(G, start, finish);
     return 0;
 }
 
 void BFS(vector<vector<int>>& myG, int& s, int& fin) {
-    size_t n = myG.size(); // число вершин
+    size_t n = myG.size(); // number of vertices
 
     queue<int> Q;
     Q.push(s);
@@ -36,9 +38,9 @@ void BFS(vector<vector<int>>& myG, int& s, int& fin) {
     vector<bool> used(n, false);
     used[s] = true;
 
-    vector<int> D(n);   //вектор длин путей
+    vector<int> D(n);   // path length vector
 
-    vector<int> P(n);   //вектор предков для вывода маршрута
+    vector<int> P(n);   // vector of ancestors for route output
     P[s] = -1;
 
     while (!Q.empty()) {
